@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Iscrizione Scuola Fermo Corni</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+      }
+
+      .titolo {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #3498db;
+      }
+
+      form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .sezione_testo,
+      .sezione_radio,
+      .sezione_textarea {
+        margin-bottom: 30px;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+      }
+
+      .titolo_sezione {
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #3498db;
+        display: inline-block;
+      }
+
+      .sezione_testo div,
+      .sezione_radio div {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 6px;
+        border: 1px solid #dee2e6;
+        transition: all 0.3s ease;
+      }
+
+      .sezione_testo div:hover,
+      .sezione_radio div:hover {
+        border-color: #3498db;
+        box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
+      }
+
+      .sezione_testo div {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sezione_radio div {
+        display: flex;
+        align-items: center;
+      }
+
+      label {
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .sezione_radio label {
+        margin-bottom: 0;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      input[type="text"] {
+        padding: 12px;
+        border: 2px solid #dee2e6;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      input[type="text"]:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      }
+
+      .errore {
+        border-color: #e74c3c !important;
+        background-color: #fff5f5 !important;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      .sezione_pulsanti {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      button {
+        padding: 14px 28px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 150px;
+      }
+
+      button[type="button"] {
+        background-color: #3498db;
+        color: white;
+      }
+
+      button[type="button"]:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+      }
+
+      button[type="reset"] {
+        background-color: #95a5a6;
+        color: white;
+      }
+
+      button[type="reset"]:hover {
+        background-color: #7f8c8d;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(149, 165, 166, 0.2);
+      }
+
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #dee2e6;
+        border-radius: 6px;
+        font-size: 16px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        resize: vertical;
+        min-height: 150px;
+        box-sizing: border-box;
+      }
+
+      textarea:focus {
+        border-color: #3498db;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      }
+
+      .suggerimento {
+        font-size: 0.9em;
+        color: #6c757d;
+        margin-top: 5px;
+        padding: 5px;
+        background-color: #e9ecef;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      .gruppo_input {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .gruppo_input {
+          grid-template-columns: 1fr;
+        }
+
+        .sezione_pulsanti {
+          flex-direction: column;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="titolo">Iscrizione Scuola F. Corni</h1>
+
+    <form action="index.html" method="post">
+      <div class="sezione_testo">
+        <h3 class="titolo_sezione">Nome/Cognome</h3>
+        <div class="gruppo_input">
+          <div>
+            <label>nome</label>
+            <input type="text" id="nome" />
+            <div class="suggerimento">
+              Formato: lettere minuscole (es. mario)
+            </div>
+          </div>
+          <div>
+            <label>cognome</label>
+            <input type="text" id="cognome" />
+            <div class="suggerimento">
+              Formato: lettere MAIUSCOLE (es. ROSSI)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sezione_radio">
+        <h3 class="titolo_sezione">Qualità di</h3>
+        <div>
+          <input
+            type="radio"
+            name="genitori"
+            id="padre"
+            value="padre"
+            checked
+          />
+          <label>padre</label>
+        </div>
+        <div>
+          <input type="radio" name="genitori" id="madre" value="madre" />
+          <label>madre</label>
+        </div>
+        <div>
+          <input type="radio" name="genitori" id="tutore" value="tutore" />
+          <label>tutore</label>
+        </div>
+      </div>
+
+      <div class="sezione_radio">
+        <h3 class="titolo_sezione">lingue studiate precedentemente</h3>
+        <div>
+          <input type="checkbox" id="inglese" checked />
+          <label>inglese</label>
+        </div>
+        <div>
+          <input type="checkbox" id="spagnolo" />
+          <label>spagnolo</label>
+        </div>
+        <div>
+          <input type="checkbox" id="francese" />
+          <label>francese</label>
+        </div>
+      </div>
+
+      <div class="sezione_textarea">
+        <h3 class="titolo_sezione">Riepilogo</h3>
+        <textarea id="area_testo" cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="sezione_pulsanti">
+        <button type="button" onclick="verifica()">Invia</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>
