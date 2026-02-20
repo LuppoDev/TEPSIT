@@ -1,0 +1,9 @@
+Creare una Sezione con un Titolo e un Paragrafo
+Obiettivo: Creare una sezione <div> contenente un titolo <h2> e un paragrafo <p>, e aggiungerla al corpo del documento.
+Istruzioni:
+1. Crea un elemento <div>.
+2. Crea un elemento <h2> con il testo "Titolo della Sezione".
+3. Crea un elemento <p> con il testo "Questo è un paragrafo all'interno della sezione".
+4. Aggiungi l'elemento <h2> all'elemento <div>.
+5. Aggiungi l'elemento <p> all'elemento <div>.
+6. Aggiungi l'elemento <div> al corpo del documento.

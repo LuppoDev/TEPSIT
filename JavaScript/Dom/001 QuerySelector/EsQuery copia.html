@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Esercizio Avanzato con QuerySelector</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      p {
+        color: #666;
+        font-size: 18px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Benvenuto nel Gioco dei Colori e del Testo!</h1>
+    <h2>Aggiungi paragrafi, cambia colori e molto altro!</h2>
+
+    <button onclick="cambiaColoreParagrafi()">Cambia Colore Paragrafi</button>
+    <button onclick="cambiaColoreSfondo()">Cambia Colore Sfondo</button>
+    <button onclick="nascondiMostraTitoli()">Nascondi/Mostra Titoli</button>
+
+    <div id="contenitoreParagrafi">
+      <p>Questo è il primo paragrafo.</p>
+      <p>Questo è il secondo paragrafo.</p>
+      <p>Questo è il terzo paragrafo.</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
