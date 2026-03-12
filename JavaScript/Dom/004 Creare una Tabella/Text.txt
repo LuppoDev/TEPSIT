@@ -1,0 +1,21 @@
+Scrivi il codice JavaScript che:
+
+Creare un bottone dinamicamente con testo "Genera tabella"
+
+Aggiungere il bottone al body della pagina
+
+All'click del bottone:
+
+Leggere i valori dai campi input con id righe e colonne
+
+Selezionare il div con id container e pulire il suo contenuto
+
+Creare una tabella con bordo (attributo border="1")
+
+Generare tante righe quante indicate nel campo righe
+
+Per ogni riga, generare tante colonne quante indicate nel campo colonne
+
+In ogni cella inserire il testo: "Riga X Cella Y" (dove X è il numero della riga, Y il numero della colonna)
+
+Aggiungere la tabella completa al container
