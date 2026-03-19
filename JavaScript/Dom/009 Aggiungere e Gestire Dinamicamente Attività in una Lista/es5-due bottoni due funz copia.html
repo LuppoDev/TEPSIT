@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Gestione Attività</title>
+    <style>
+      /* Reset e stili base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Contenitore principale */
+      h1 {
+        color: white;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        animation: fadeInDown 0.5s ease;
+      }
+
+      /* Contenitore per input e bottone affiancati */
+      .input-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+      }
+
+      /* Area di input */
+      input[type="text"] {
+        flex: 1;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 50px 0 0 50px;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        transform: scale(1.02);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      input[type="text"]::placeholder {
+        color: #999;
+        font-style: italic;
+      }
+
+      /* Bottone Aggiungi Attività (affiancato) */
+      .btn-aggiungi {
+        padding: 15px 30px;
+        border: none;
+        background: white;
+        color: #667eea;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 0 50px 50px 0;
+        white-space: nowrap;
+      }
+
+      .btn-aggiungi:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-aggiungi:active {
+        transform: translateY(0);
+      }
+
+      /* Bottone Mostra Riepilogo (separato) */
+      .btn-riepilogo {
+        padding: 15px 40px;
+        border: none;
+        background: #ff6b6b;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 50px;
+        margin-top: 20px;
+      }
+
+      .btn-riepilogo:hover {
+        background: #ff5252;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-riepilogo:active {
+        transform: translateY(0);
+      }
+
+      /* Lista attività */
+      #elenco {
+        width: 100%;
+        max-width: 600px;
+        margin: 30px auto;
+        list-style: none;
+      }
+
+      li {
+        background: white;
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        animation: slideIn 0.3s ease;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      li:hover {
+        transform: translateX(5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Testo dell'attività */
+      li:first-line {
+        font-size: 1.1em;
+        font-weight: 500;
+        color: #333;
+      }
+
+      /* Bottone all'interno delle attività */
+      li button {
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        margin: 0;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        width: fit-content;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      li button:hover {
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      /* Div riepilogo */
+      #nascosto {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        margin: 20px 0;
+        animation: fadeIn 0.5s ease;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      #nascosto p {
+        font-size: 1.2em;
+        color: #333;
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      #nascosto p:first-child {
+        font-size: 1.5em;
+        color: #667eea;
+        font-weight: bold;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 15px;
+      }
+
+      #totaleAttivita,
+      #attivitaCompletate {
+        font-weight: bold;
+        color: #764ba2;
+        font-size: 1.3em;
+        margin-left: 10px;
+        background: #f8f9fa;
+        padding: 5px 15px;
+        border-radius: 50px;
+        display: inline-block;
+      }
+
+      /* Animazioni */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2em;
+          text-align: center;
+        }
+
+        .input-container {
+          flex-direction: column;
+          gap: 10px;
+          padding: 0 15px;
+        }
+
+        input[type="text"] {
+          width: 100%;
+          border-radius: 50px;
+        }
+
+        .btn-aggiungi {
+          width: 100%;
+          border-radius: 50px;
+        }
+
+        li {
+          padding: 15px;
+        }
+
+        #nascosto {
+          margin: 20px 15px;
+          padding: 20px;
+        }
+      }
+
+      /* Stile per il br (non rimuovere, fa parte del JS) */
+      br {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gestione Attività</h1>
+
+    <!-- Contenitore che tiene input e bottone affiancati -->
+    <div class="input-container">
+      <input type="text" id="Input" placeholder="Inserisci nuova attività" />
+      <button class="btn-aggiungi" onclick="aggiungi()">
+        Aggiungi Attività
+      </button>
+    </div>
+
+    <ul id="elenco"></ul>
+
+    <div id="nascosto" style="display: none">
+      <p>Riepilogo Attività:</p>
+      <p>Totale Attività: <span id="totaleAttivita">0</span></p>
+      <p>Attività Completate: <span id="attivitaCompletate">0</span></p>
+    </div>
+
+    <button class="btn-riepilogo" onclick="riepilogo()">
+      Mostra Riepilogo
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
