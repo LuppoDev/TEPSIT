@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Gestione Prodotti Magazzino</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background-color: #f5f5f5;
+      }
+      h1 {
+        color: #333;
+        border-bottom: 2px solid #4caf50;
+        padding-bottom: 10px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 1000px;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100px;
+      }
+      input[type="number"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 80px;
+      }
+      input[type="button"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      input[type="button"]:hover {
+        background-color: #45a049;
+      }
+      .btn-vendi {
+        background-color: #ff9800 !important;
+      }
+      .btn-vendi:hover {
+        background-color: #f57c00 !important;
+      }
+      .product-count {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #e3f2fd;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .input-group {
+        background-color: white;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin: 20px 0;
+      }
+      label {
+        font-weight: bold;
+        color: #555;
+        display: inline-block;
+        width: 180px;
+      }
+      .codice-cell {
+        font-family: monospace;
+        font-weight: bold;
+        color: #2196f3;
+      }
+      .vendita-group {
+        background-color: #fff3e0;
+        padding: 15px;
+        border-radius: 4px;
+        margin-top: 15px;
+        border-left: 4px solid #ff9800;
+      }
+      .filtro-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 4px;
+      }
+      .filtro-row label {
+        width: auto;
+        margin-right: 5px;
+      }
+      .filtro-row input[type="number"] {
+        width: 80px;
+      }
+      .button-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📦 Gestione Prodotti Magazzino</h1>
+
+    <table id="tab">
+      <tr>
+        <th>Codice</th>
+        <th>Prodotto</th>
+        <th>Descrizione</th>
+        <th>Quantità</th>
+      </tr>
+      <tr>
+        <td class="codice-cell">LP001</td>
+        <td>Laptop Dell XPS 13</td>
+        <td>Ultrabook con processore i7, 16GB RAM, 512GB SSD</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">MS002</td>
+        <td>Mouse Wireless Logitech</td>
+        <td>Mouse ergonomico con connessione Bluetooth</td>
+        <td>42</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">TK003</td>
+        <td>Tastiera Meccanica</td>
+        <td>Tastiera con switch blu, retroilluminata</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">MN004</td>
+        <td>Monitor 27" 4K</td>
+        <td>Monitor professionale con copertura sRGB 100%</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">SS005</td>
+        <td>SSD Samsung 1TB</td>
+        <td>Unità a stato solido NVMe M.2</td>
+        <td>35</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">CF006</td>
+        <td>Cuffie Gaming</td>
+        <td>Cuffie con microfono e cancellazione rumore</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">WC007</td>
+        <td>Webcam HD 1080p</td>
+        <td>Webcam con autofocus e microfono integrato</td>
+        <td>18</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">HB008</td>
+        <td>Hub USB-C 7 porte</td>
+        <td>Hub con lettore di schede e uscita HDMI</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">TB009</td>
+        <td>Tablet Samsung</td>
+        <td>Tablet Android con S Pen inclusa</td>
+        <td>22</td>
+      </tr>
+      <tr>
+        <td class="codice-cell">ST010</td>
+        <td>Stampante Laser</td>
+        <td>Stampante multifunzione Wi-Fi</td>
+        <td>9</td>
+      </tr>
+    </table>
+
+    <div class="input-group">
+      <div class="filtro-row">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <label for="soglia" style="width: auto">Soglia minima:</label>
+          <input
+            type="number"
+            id="soglia"
+            min="0"
+            value="20"
+            style="width: 80px; margin: 0"
+          />
+        </div>
+        <input
+          type="button"
+          value="Filtra prodotti sotto soglia"
+          onClick="filtraProdotti();"
+          style="margin: 0"
+        />
+      </div>
+
+      <!-- BOTTONI PRINCIPALI -->
+      <div class="button-row">
+        <input
+          type="button"
+          value="Ripristina tabella"
+          onClick="ripristinaTabella();"
+        />
+        <input
+          type="button"
+          value="Ordina per nome prodotto (A-Z)"
+          onClick="ordinaPerNome();"
+        />
+      </div>
+
+      <hr style="margin: 20px 0" />
+
+      <!-- ELIMINA PRODOTTO -->
+      <div
+        style="
+          margin-bottom: 15px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        "
+      >
+        <label for="codiceElimina" style="width: auto"
+          >Codice prodotto da eliminare:</label
+        >
+        <input
+          type="text"
+          id="codiceElimina"
+          placeholder="es. LP001"
+          style="width: 120px"
+        />
+        <input
+          type="button"
+          value="Elimina per codice"
+          onClick="eliminaPerCodice();"
+        />
+      </div>
+
+      <!-- REGISTRA VENDITA -->
+      <div class="vendita-group">
+        <h3 style="margin-top: 0; color: #ff9800">🛒 Registra Vendita</h3>
+        <div
+          style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap"
+        >
+          <div style="display: flex; align-items: center; gap: 10px">
+            <label for="codiceVendita" style="width: auto"
+              >Codice venduto:</label
+            >
+            <input
+              type="text"
+              id="codiceVendita"
+              placeholder="es. LP001"
+              style="width: 120px"
+            />
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <label for="quantitaVenduta" style="width: auto">Quantità:</label>
+            <input
+              type="number"
+              id="quantitaVenduta"
+              min="1"
+              value="1"
+              style="width: 80px"
+            />
+          </div>
+          <input
+            type="button"
+            class="btn-vendi"
+            value="Registra Vendita"
+            onClick="registraVendita();"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div id="productCount" class="product-count">
+      Totale prodotti visualizzati: 10
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

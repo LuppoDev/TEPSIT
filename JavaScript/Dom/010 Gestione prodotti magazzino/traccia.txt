@@ -1,0 +1,108 @@
+Si desidera realizzare il codice JavaScript per un'applicazione web che permetta la gestione di un magazzino prodotti. L'applicazione visualizza una tabella con prodotti (codice, nome, descrizione, quantità) e fornisce funzionalità per filtrare, ordinare, eliminare prodotti e registrare vendite.
+
+Parte 1: Setup Iniziale
+Salvare il contenuto originale della tabella in una variabile all'avvio della pagina per poterla ripristinare successivamente
+
+Aggiornare il contatore dei prodotti visualizzati all'avvio della pagina
+
+Parte 2: Funzione eliminaPerCodice()
+Implementare la funzione che:
+
+Legge il codice inserito nell'apposito campo di input
+
+Cerca nella tabella la riga con il codice corrispondente
+
+Se trova il prodotto, rimuove l'intera riga dalla tabella
+
+Pulisce il campo di input
+
+Aggiorna il contatore dei prodotti
+
+Mostra un messaggio di conferma o di errore
+
+Parte 3: Funzione registraVendita()
+Implementare la funzione che:
+
+Legge il codice prodotto e la quantità venduta dagli appositi campi
+
+Verifica che la quantità inserita sia valida (maggiore di 0)
+
+Cerca nella tabella il prodotto con il codice corrispondente
+
+Controlla che la quantità disponibile sia sufficiente
+
+Sottrae la quantità venduta dalla quantità attuale
+
+Pulisce i campi di input
+
+Mostra messaggi appropriati:
+
+Se la quantità diventa 0, avvisa che il prodotto è esaurito
+
+Altrimenti conferma la vendita con la nuova quantità
+
+Gestisce il caso di prodotto non trovato o quantità insufficiente
+
+Parte 4: Funzione filtraProdotti()
+Implementare la funzione che:
+
+Legge il valore di soglia minima dall'apposito campo
+
+Filtra la tabella mostrando SOLO i prodotti con quantità inferiore alla soglia
+
+Aggiorna il contatore dei prodotti visualizzati
+
+Parte 5: Funzione ripristinaTabella()
+Implementare la funzione che:
+
+Ripristina la tabella al suo contenuto originale (salvato all'avvio)
+
+Pulisce tutti i campi di input (codice eliminazione, soglia, codice vendita, quantità venduta)
+
+Resetta il campo soglia al valore predefinito (20)
+
+Aggiorna il contatore dei prodotti
+
+Parte 6: Funzione ordinaPerNome()
+Implementare la funzione che:
+
+Estrae tutte le righe della tabella escludendo l'intestazione
+
+Ordina le righe in ordine alfabetico in base al nome del prodotto
+
+Ricostruisce la tabella con l'intestazione seguita dalle righe ordinate
+
+Aggiorna il contatore dei prodotti
+
+Parte 7: Funzione aggiornaContatore()
+Implementare la funzione che:
+
+Conta il numero di righe nella tabella (escludendo l'intestazione)
+
+Aggiorna il testo dell'elemento con id "productCount" mostrando il totale
+
+Note Tecniche
+Utilizzare i selettori appropriati: getElementById, querySelector, querySelectorAll
+
+Manipolare il DOM per aggiungere/rimuovere elementi
+
+Convertire correttamente i valori numerici (Number())
+
+La tabella ha la struttura: prima riga di intestazione, poi righe dati
+
+I codici prodotto sono univoci e si trovano nella prima colonna
+
+Obiettivo Finale
+Realizzare tutte le funzioni JavaScript affinché l'applicazione permetta di:
+
+✅ Filtrare prodotti sotto una soglia minima
+
+✅ Eliminare prodotti per codice
+
+✅ Registrare vendite (decremento quantità)
+
+✅ Ordinare i prodotti per nome
+
+✅ Ripristinare la tabella originale
+
+✅ Visualizzare sempre il contatore aggiornato dei prodotti visibili
