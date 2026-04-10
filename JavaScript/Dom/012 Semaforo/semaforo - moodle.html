@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /*disegna rettangolo forma semaforo*/
+      #semaforo {
+        border: 1px solid #000;
+        width: 33px;
+        padding: 3px;
+        min-height: 100px;
+      }
+
+      /*disegna i cerchi da colorare*/
+      .lampada {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-bottom: 3px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="semaforo">
+      <div id="rosso" class="lampada"></div>
+      <div id="giallo" class="lampada"></div>
+      <div id="verde" class="lampada"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
