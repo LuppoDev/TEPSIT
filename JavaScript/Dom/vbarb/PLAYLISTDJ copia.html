@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DJ Set - Playlist delle Hit</title>
+    <style>
+      /* Stili tema DJ / musica */
+      body {
+        font-family: "Segoe UI", "Helvetica", sans-serif;
+        background-color: #0a0a0a;
+        margin: 0;
+        padding: 20px;
+      }
+
+      header {
+        background-color: #1e1e2f;
+        color: #f5a623;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 1.8em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      #icona-carrello {
+        cursor: pointer;
+        font-size: 1.3em;
+        background-color: #f5a623;
+        color: #1e1e2f;
+        padding: 10px 20px;
+        border-radius: 50px;
+        transition: transform 0.3s;
+        font-weight: bold;
+      }
+
+      #icona-carrello:hover {
+        transform: scale(1.05);
+        background-color: #ffb347;
+      }
+
+      .prodotti {
+        border: 2px solid #f5a623;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 15px;
+        background-color: #1e1e2f;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.2s;
+        color: #eee;
+      }
+
+      .prodotti:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+      }
+
+      .prodotti h3 {
+        color: #f5a623;
+        font-size: 1.5em;
+        margin-top: 0;
+      }
+
+      button {
+        background-color: #f5a623;
+        color: #1e1e2f;
+        border: none;
+        padding: 10px 22px;
+        cursor: pointer;
+        border-radius: 30px;
+        font-size: 0.95em;
+        font-weight: bold;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: #ffb347;
+      }
+
+      #contenitore-carrello {
+        background-color: #1e1e2f;
+        padding: 25px;
+        border-radius: 20px;
+        border: 3px solid #f5a623;
+        width: 85%;
+        max-width: 620px;
+        margin: 25px auto;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      #contenitore-carrello h2 {
+        color: #f5a623;
+        border-bottom: 2px dashed #ffb347;
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+
+      .left-margin {
+        margin-left: 18px;
+        margin-bottom: 5px;
+        background-color: #f5a623;
+        color: #1e1e2f;
+        padding: 5px 14px;
+        border-radius: 25px;
+        font-size: 0.85em;
+        font-weight: bold;
+      }
+
+      .left-margin:hover {
+        background-color: #ffb347;
+      }
+
+      #elenco li {
+        padding: 12px;
+        margin: 10px 0;
+        background-color: #0a0a0a;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style-type: none;
+        border-left: 6px solid #f5a623;
+        color: #f0f0f0;
+      }
+
+      /* icone tema DJ */
+      .prodotti h3::before {
+        content: "🎧 ";
+      }
+      button:active {
+        transform: scale(0.97);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🎧 DJ Set - Playlist delle Hit</h1>
+      <div id="icona-carrello" onclick="visualizza()">
+        🎛️ Playlist <span id="contatore-carrello">0</span>
+      </div>
+    </header>
+
+    <h2 style="color: #f5a623; margin-left: 5px">🔥 Brani Top Chart</h2>
+
+    <div class="prodotti">
+      <h3>Blinding Lights</h3>
+      <p>🎤 The Weeknd · Synthwave gold, beat ipnotico per il mix serale</p>
+      <button onclick="aggiungi('Blinding Lights - The Weeknd')">
+        Aggiungi alla playlist
+      </button>
+    </div>
+
+    <div class="prodotti">
+      <h3>Flowers</h3>
+      <p>🎤 Miley Cyrus · Anthem pop energizzante, voce potente</p>
+      <button onclick="aggiungi('Flowers - Miley Cyrus')">
+        Aggiungi alla playlist
+      </button>
+    </div>
+
+    <div class="prodotti">
+      <h3>Bad Guy</h3>
+      <p>🎤 Billie Eilish · Bassi pesanti, vibe dark e attitudine unica</p>
+      <button onclick="aggiungi('Bad Guy - Billie Eilish')">
+        Aggiungi alla playlist
+      </button>
+    </div>
+
+    <div class="prodotti">
+      <h3>Levitating</h3>
+      <p>
+        🎤 Dua Lipa · Disco pop energizzante, perfetta per il picco della serata
+      </p>
+      <button onclick="aggiungi('Levitating - Dua Lipa')">
+        Aggiungi alla playlist
+      </button>
+    </div>
+
+    <div class="prodotti">
+      <h3>Uptown Funk</h3>
+      <p>
+        🎤 Mark Ronson ft. Bruno Mars · Funk esplosivo, groove irresistibile
+      </p>
+      <button onclick="aggiungi('Uptown Funk - Mark Ronson ft. Bruno Mars')">
+        Aggiungi alla playlist
+      </button>
+    </div>
+
+    <!-- Contenitore della playlist (identico al carrello originale) -->
+    <div id="contenitore-carrello" style="display: none">
+      <h2>📀 La Mia Playlist</h2>
+      <div id="elemento-carrello">
+        <ul id="elenco"></ul>
+      </div>
+      <button onclick="svuota()">🗑️ Svuota Playlist</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
