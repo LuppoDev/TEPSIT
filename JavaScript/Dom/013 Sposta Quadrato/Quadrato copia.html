@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimento Quadrato - Effetto Serpentina</title>
+    <style>
+      /* Contenitore che evidenzia l'area di movimento */
+      .movement-area {
+        position: relative;
+        width: 550px;
+        height: 200px;
+        background-color: #f0f0f0;
+        border: 2px solid #333;
+        border-radius: 10px;
+        margin: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #box {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      .controls {
+        margin: 20px;
+      }
+
+      .info {
+        margin: 20px;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="movement-area">
+      <div id="box"></div>
+    </div>
+
+    <div class="controls">
+      <button onclick="stopMove()">STOP</button>
+      <button onclick="resumeMove()">RIPRENDI</button>
+      <button onclick="reset()">RIPRENDI</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

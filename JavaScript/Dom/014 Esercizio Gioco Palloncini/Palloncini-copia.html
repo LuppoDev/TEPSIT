@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fabbrica di Palloncini</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f0f8ff;
+      }
+      h1 {
+        color: #ff69b4;
+      }
+      #contenitorePalloncini {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .palloncino {
+        width: 80px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        margin: 10px; /* margine aggiunto direttamente al palloncino */
+      }
+      .palloncino:hover {
+        transform: scale(1.1);
+      }
+      .contatore {
+        font-size: 18px;
+        color: #ff69b4;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Fabbrica di Palloncini</h1>
+    <div class="contatore" id="contatore">Palloncini: 0 / 10</div>
+
+    <div id="contenitorePalloncini">
+      <!-- I palloncini verranno aggiunti qui -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
