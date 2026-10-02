@@ -11,6 +11,11 @@
 # Formati per c
 !**/*.c
 
+# Formati per Java
+!**/*.java
+!**/*.iml
+!**/*.xml
+
 # File geerici
 !LICENSE
 !*/
